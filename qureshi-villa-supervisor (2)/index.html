@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QURESHI VILLA SUPERVISOR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800&display=swap');
+      
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+
+      /* =========================================
+         1. TEXT ANIMATION: Liquid Gold & Teal Flow
+         ========================================= */
+      .brand-text {
+        font-family: 'Outfit', sans-serif;
+        display: inline-block;
+        background: linear-gradient(
+          110deg,
+          #2dd4bf 0%,   /* Teal-400 */
+          #a855f7 25%,  /* Purple-500 */
+          #ffffff 50%,  /* White Highlight */
+          #a855f7 75%,  /* Purple-500 */
+          #2dd4bf 100%  /* Teal-400 */
+        );
+        background-size: 200% auto;
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: liquidFlow 10s linear infinite;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+      }
+
+      @keyframes liquidFlow {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 300% 50%; }
+      }
+
+      @keyframes trackingExpand {
+        0% { letter-spacing: -0.1em; opacity: 0; }
+        40% { opacity: 0.6; }
+        100% { opacity: 1; }
+      }
+
+      /* =========================================
+         2. LOGO ANIMATION: The Construction Build
+         ========================================= */
+      
+      /* The lines drawing themselves */
+      .draw-path {
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+        animation: drawLine 4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+
+      /* Delays for specific parts to look like 'building' steps */
+      .draw-delay-1 { animation-delay: 0.4s; } /* Foundation */
+      .draw-delay-2 { animation-delay: 1.6s; } /* Walls */
+      .draw-delay-3 { animation-delay: 2.8s; } /* Roof */
+
+      @keyframes drawLine {
+        to { stroke-dashoffset: 0; }
+      }
+
+      /* The Window popping in at the end */
+      .pop-in {
+        opacity: 0;
+        transform: scale(0);
+        transform-origin: center;
+        animation: popScale 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        animation-delay: 4.4s; /* After lines are drawn */
+      }
+
+      @keyframes popScale {
+        to { opacity: 1; transform: scale(1); }
+      }
+
+      /* Custom Date Picker Styling */
+      input[type="date"]::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+        opacity: 0.6;
+        transition: 0.2s;
+      }
+      input[type="date"]::-webkit-calendar-picker-indicator:hover {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+
+      /* Hide Scrollbar */
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* Bento Grid Card Hover */
+      .bento-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .bento-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      }
+
+      /* Glassmorphism */
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+    </style>
+</head>
+  <body class="bg-slate-50 text-slate-900">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

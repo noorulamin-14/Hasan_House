@@ -1,0 +1,7 @@
+{
+  "name": "QURESHI VILLA SUPERVISOR",
+  "description": "Construction Site Management App for Supervisors in Pakistan. Manage materials, progress, and salaries.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
